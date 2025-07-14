@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo - Yosvaldo</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="flex flex-col items-center justify-evenly min-h-screen bg-cover bg-center"
+style="background-image: url('./background.jpg');">
+    <header>
+        <h1 class="text-6xl font-bold">Todo List</h1>
+    </header>
+
+    <main class="py-[16px] rounded">
+    <form class="flex flex-col gap-[8px] border border-gray-300 rounded p-[16px] bg-white shadow-md w-full max-w-2xl">
+    <div class="flex flex-wrap gap-[8px] items-center">
+    <input type="text" id="task-input" class="border rounded p-[4px] bg-white flex-1 min-w-[150px]" placeholder="Add a new task">
+    <input type="date" id="due-date-input" class="border rounded p-[4px] bg-white min-w-[140px]">
+
+    <div class="flex gap-[4px] items-center">
+      <select id="hour-input" class="border rounded p-[4px] bg-white">
+        <script>
+        for (let i = 0; i < 24; i++) {
+        document.write(`<option value="${i.toString().padStart(2, '0')}">${i.toString().padStart(2, '0')}</option>`);
+        }
+        </script>
+      </select>
+      
+      <span class="font-bold">:</span>
+      
+      <select id="minute-input" class="border rounded p-[4px] bg-white">
+        <script>
+        for (let i = 0; i < 60; i++) {
+        document.write(`<option value="${i.toString().padStart(2, '0')}">${i.toString().padStart(2, '0')}</option>`);
+        }
+        </script>
+      </select>
+    </div>
+
+    <button type="button" class="bg-green-400 text-white px-3 py-1 rounded" onclick="addTask();">+</button>
+    </div>
+    </form>
+
+    <section class="flex justify-between items-center p-[12px] mt-[16px] border border-gray-300 rounded bg-white shadow-sm">
+    <div class="flex gap-[8px]">
+    <button onclick="filterTasks('completed')" class="bg-gray-200 p-[4px] rounded">Show Completed</button>
+    <button onclick="filterTasks('all')" class="bg-green-200 p-[4px] rounded">Show All</button>
+    </div>
+    <button class="bg-red-500 text-white p-[4px] rounded" onclick="deleteAllTasks();">Delete All</button>
+    </section>
+
+    <section class="mt-4">
+    <header>
+    <h2 class="text-2xl font-bold">Tasks List</h2>
+    </header>
+
+    <div class="border border-gray-300 rounded p-4 mt-2 bg-white shadow-sm" id="task-list">
+    <p>Task is Empty!</p>
+    </div>
+  </section>
+    </main>
+
+    <footer>
+        <span>© 2025 Yosvaldo. All rights reserved.</span>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
